@@ -17,6 +17,7 @@ This application was created as a demo application to verify the usage of NextUI
 - [TypeScript](https://www.typescriptlang.org/) - TypeScript is JavaScript with syntax for types.
 - [Tailwind CSS](https://tailwindcss.com/) - Rapidly build modern websites without ever leaving your HTML.
 - [NextUI](https://nextui.org/) - Make beautiful websites regardless of your design experience.
+- [react-hot-toast](https://react-hot-toast.com/) - Add beautiful notifications to your React app.
 - [Bun](https://bun.sh/) - Bun is an npm-compatible package manager.
 - [DummyJSON](https://dummyjson.com/) - Get dummy/fake JSON data to use as placeholder in development or in prototype testing.
 

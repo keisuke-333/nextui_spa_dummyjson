@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Spacer } from "@nextui-org/react"
+import toast, { Toaster } from "react-hot-toast"
 import type { Category, Product, ProductListType } from "./types"
 
 import { Layout } from "./components/Layout"
@@ -21,11 +22,14 @@ const App = () => {
     const fetchCategories = async () => {
       try {
         const response = await fetch(`${API_BASE}/categories`)
+        if (!response.ok) {
+          throw new Error("Failed to fetch categories.")
+        }
         const data: Category[] = await response.json()
         setCategories(data)
       } catch (error) {
-        console.error("Failed to fetch categories:", error)
-        throw error
+        console.error(error)
+        toast.error("カテゴリーの取得に失敗しました。")
       }
     }
     fetchCategories()
@@ -35,10 +39,14 @@ const App = () => {
     const fetchProducts = async () => {
       try {
         const response = await fetch(`${API_BASE}/category/${selectedCategory}`)
+        if (!response.ok) {
+          throw new Error("Failed to fetch product list.")
+        }
         const data: ProductListType = await response.json()
         setProducts(data.products)
       } catch (error) {
-        console.error("Failed to fetch products:", error)
+        console.error(error)
+        toast.error("商品情報の取得に失敗しました。")
       }
     }
 
@@ -50,10 +58,14 @@ const App = () => {
   const handleSelectProduct = async (productId: number) => {
     try {
       const response = await fetch(`${API_BASE}/${productId}`)
+      if (!response.ok) {
+        throw new Error("Failed to fetch product details.")
+      }
       const data: Product = await response.json()
       setSelectedProduct(data)
     } catch (error) {
-      console.error("Failed to fetch product details:", error)
+      console.error(error)
+      toast.error("商品詳細情報の取得に失敗しました。")
     }
   }
 
@@ -72,6 +84,7 @@ const App = () => {
       <ProductList products={products} onSelectProduct={handleSelectProduct} />
       <Spacer y={6} />
       {selectedProduct && <ProductDetail product={selectedProduct} />}
+      <Toaster />
     </Layout>
   )
 }
