@@ -1,6 +1,6 @@
 # NextUI SPA DummyJSON
 
-[Demo](nextui-spa-dummyjson.vercel.app/)
+[Demo](https://nextui-spa-dummyjson.vercel.app/)
 
 ![screen](https://github.com/keisuke-333/nextui_spa_dummyjson/assets/65392082/27673b3b-c554-420d-a9ad-8003a861874a)
 
