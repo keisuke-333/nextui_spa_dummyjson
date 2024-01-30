@@ -1,8 +1,10 @@
+<div align="center">
+
 # NextUI SPA DummyJSON
 
-[Demo](https://nextui-spa-dummyjson.vercel.app/)
-
-![screen](https://github.com/keisuke-333/nextui_spa_dummyjson/assets/65392082/27673b3b-c554-420d-a9ad-8003a861874a)
+  <img src="https://github.com/keisuke-333/nextui_spa_dummyjson/assets/65392082/27673b3b-c554-420d-a9ad-8003a861874a" alt="screen image" />
+  <p><a href="https://nextui-spa-dummyjson.vercel.app/" target="_blank">Demo</a></p>
+</div>
 
 This is a demo application using React18 and TypeScript, inspired by a part of an EC site.
 The purpose is to get backend API information from the frontend and display that information on the screen.
