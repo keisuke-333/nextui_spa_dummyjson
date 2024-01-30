@@ -8,8 +8,6 @@ import { CategorySelect } from "./components/CategorySelect"
 import { ProductList } from "./components/ProductList"
 import { ProductDetail } from "./components/ProductDetail"
 
-const API_BASE = "https://dummyjson.com/products"
-
 const App = () => {
   const [categories, setCategories] = useState<Category[]>([])
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(
@@ -21,7 +19,9 @@ const App = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch(`${API_BASE}/categories`)
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/categories`
+        )
         if (!response.ok) {
           throw new Error("Failed to fetch categories.")
         }
@@ -38,7 +38,9 @@ const App = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch(`${API_BASE}/category/${selectedCategory}`)
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/category/${selectedCategory}`
+        )
         if (!response.ok) {
           throw new Error("Failed to fetch product list.")
         }
@@ -57,7 +59,9 @@ const App = () => {
 
   const handleSelectProduct = async (productId: number) => {
     try {
-      const response = await fetch(`${API_BASE}/${productId}`)
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/${productId}`
+      )
       if (!response.ok) {
         throw new Error("Failed to fetch product details.")
       }
